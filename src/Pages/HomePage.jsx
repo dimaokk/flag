@@ -8,11 +8,17 @@ import { CountriesCard } from "../Components/Counries/CountriesCard";
 //route
 import { useNavigate } from "react-router-dom";
 
-export const HomePage = ({ countries, setCountries }) => {
+export const HomePage = () => {
+  const [countries, setCountries] = useState([]);
+  useEffect(() => {
+    countriesAPI.getAllCountries().then(({ data }) => setCountries(data));
+  }, []);
+
   const navigate = useNavigate();
   const goCounries = (name) => navigate(`/country/${name}`);
 
   const [filterCountries, setFilterCountries] = useState(countries);
+
   const handleSaerch = (search, region) => {
     let data = [...countries];
     if (region) {
@@ -26,10 +32,6 @@ export const HomePage = ({ countries, setCountries }) => {
     setFilterCountries(data);
   };
 
-  useEffect(() => {
-    if (!countries.length)
-      countriesAPI.getAllCountries().then(({ data }) => setCountries(data));
-  }, []);
   return (
     <>
       <Controls onSearch={handleSaerch} />
@@ -40,15 +42,15 @@ export const HomePage = ({ countries, setCountries }) => {
             name: ct.name,
             info: [
               {
-                title: "Population",
+                title: "Population: ",
                 description: ct.population.toLocaleString(),
               },
               {
-                title: "Region",
+                title: "Region: ",
                 description: ct.region,
               },
               {
-                title: "Capital",
+                title: "Capital: ",
                 description: ct.capital,
               },
             ],

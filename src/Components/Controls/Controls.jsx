@@ -36,6 +36,7 @@ export const Controls = ({ onSearch }) => {
   return (
     <SelectWrapper>
       <Search search={search} setSearch={setSearch} />
+      <div>Choise region</div>
       <CustomSelect
         options={options}
         placeholder="Filter region"
