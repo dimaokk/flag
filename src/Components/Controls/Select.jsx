@@ -32,7 +32,7 @@ export const CustomSelect = styled(Select).attrs({
   }
 
   & > div[id] {
-    background-color: var(--background-color);
+    background-color: var(--color-elemetnt);
   }
 
   & * {

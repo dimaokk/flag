@@ -32,6 +32,7 @@ export const Controls = ({ onSearch }) => {
     onSearch(search, regionValue);
     //eslint-disable-next-line
   }, [search, region]);
+  
   return (
     <SelectWrapper>
       <Search search={search} setSearch={setSearch} />

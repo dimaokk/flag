@@ -1,10 +1,13 @@
 import { useState, useEffect } from "react";
 import styled from "styled-components";
+//componennt
 import { Container } from "../Styled-Components/Container";
 import { BsMoonStarsFill, BsMoonStars } from "react-icons/bs";
+//route
+import { Link } from "react-router-dom";
 
 const HeaderElment = styled.header`
-  background-color: (--color-elemetnt);
+  background-color: var(--color-elemetnt);
 `;
 
 const HeaderWrapper = styled.div`
@@ -14,17 +17,16 @@ const HeaderWrapper = styled.div`
   padding: 2rem 0;
 `;
 
-const Title = styled.a.attrs({ href: "./" })`
+const Title = styled(Link).attrs({ to: "/" })`
   color: var(--color-text);
-
-  font-size: (--fs-small);
+  font-size: var(--fs-small);
   text-decoration: none;
-  font-weight: (--fw-bold);
+  font-weight: var(--fw-bold);
 `;
 
 const ThemeSwitchElement = styled.div`
   color: var(--color-text);
-  font-size: (--fs-small);
+  font-size: var(--fs-small);
   cursor: pointer;
 `;
 

@@ -1,69 +1,30 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 //componennt
 import { Header } from "./Components/Header/Header";
 import { Main } from "./Components/Main/Main";
-import { Controls } from "./Components/Controls/Controls";
-import { CountriesList } from "./Components/Counries/CountriesList";
-import { CountriesCard } from "./Components/Counries/CountriesCard";
-//api
-import { countriesAPI } from "./api-config";
-
 //routing
 import { Routes, Route } from "react-router-dom";
+//pages
+import { HomePage } from "./Pages/HomePage";
+import { CountryDeteils } from "./Pages/CountryDeteils";
+import { NotFound } from "./Pages/NotFound";
 
 function App() {
   const [countries, setCountries] = useState([]);
-
-  const [filterCountries, setFilterCountries] = useState(countries);
-
-  const handleSaerch = (search, region) => {
-    let data = [...countries];
-
-    if (region) {
-      data = data.filter((c) => c.region.includes(region));
-    }
-
-    if (search) {
-      data = data.filter((c) =>
-        c.name.toLowerCase().includes(search.toLowerCase())
-      );
-    }
-
-    setFilterCountries(data);
-  };
-
-  useEffect(() => {
-    countriesAPI.getAllCountries().then(({ data }) => setCountries(data));
-  }, []);
-  console.log(countries);
   return (
     <>
       <Header />
       <Main>
-        <Controls onSearch={handleSaerch} />
-        <CountriesList>
-          {filterCountries.map((ct) => {
-            const countryProps = {
-              img: ct.flags.svg,
-              name: ct.name,
-              info: [
-                {
-                  title: "Population",
-                  description: ct.population.toLocaleString(),
-                },
-                {
-                  title: "Region",
-                  description: ct.region,
-                },
-                {
-                  title: "Capital",
-                  description: ct.capital,
-                },
-              ],
-            };
-            return <CountriesCard key={ct.name} {...countryProps} />;
-          })}
-        </CountriesList>
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <HomePage countries={countries} setCountries={setCountries} />
+            }
+          />
+          <Route path="/country/:name" element={<CountryDeteils />} />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
       </Main>
     </>
   );
