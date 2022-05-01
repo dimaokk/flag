@@ -11,7 +11,7 @@ export const CustomSelect = styled(Select).attrs({
       boxShadow: "var(--shadow)",
       border: "none",
       height: "50px",
-      backgroundColor: "var(--background-color)",
+      backgroundColor: "var(--color-element)",
     }),
     option: (provided, state) => ({
       ...provided,
@@ -19,7 +19,7 @@ export const CustomSelect = styled(Select).attrs({
       color: "var(--color-text)",
       backgroundColor: state.isSelected
         ? "var(--background-color)"
-        : "var(--color-elemetnt)",
+        : "var(--color-element)",
     }),
   },
 })`
@@ -32,7 +32,7 @@ export const CustomSelect = styled(Select).attrs({
   }
 
   & > div[id] {
-    background-color: var(--color-elemetnt);
+    background-color: var(--color-element);
   }
 
   & * {

@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { IoSearch } from "react-icons/io5";
 
 const InputContainer = styled.label`
-  background-color: var(--background-color);
+  background-color: var(--color-element);
   padding: 1rem 2rem;
   display: flex;
   align-items: center;
@@ -25,7 +25,7 @@ margin-left: 2rem;
 border:none;
 outline:none;
 color: var(--color-text);
-background-color: var(--background-color);lm
+background-color: var(--color-element);
 `;
 
 export default function Search({ search, setSearch }) {

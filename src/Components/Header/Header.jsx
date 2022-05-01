@@ -7,7 +7,7 @@ import { BsMoonStarsFill, BsMoonStars } from "react-icons/bs";
 import { Link } from "react-router-dom";
 
 const HeaderElment = styled.header`
-  background-color: var(--color-elemetnt);
+  background-color: var(--color-element);
 `;
 
 const HeaderWrapper = styled.div`

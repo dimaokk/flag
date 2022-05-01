@@ -3,10 +3,9 @@ import styled from "styled-components";
 
 const CardWrapper = styled.article`
   border-radius: var(--radius);
-  background-color: var(--background-color);
+  background-color: var(--color-element);
   cursor: pointer;
   overflow: hidden;
-  border: 1px solid white;
 `;
 const CardImg = styled.img`
   display: block;
