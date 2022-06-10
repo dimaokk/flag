@@ -1,13 +1,46 @@
-body {
+@import-normalize;
+
+@import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;600;800&display=swap");
+
+* {
+  padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  box-sizing: border-box;
+  list-style: none;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+:root {
+  /* tupoografy */
+  --family: "Nunito Sans", sans-serif;
+  --fs-small: 14px;
+  --fs-mid: 16px;
+  --fw-light: 300;
+  --fw-normal: 600;
+  --fw-bold: 800;
+
+  /* other */
+  --radius: 0.5rem;
+}
+
+body[app-theme="dark_mode"] {
+  --color-text: hsl(0, 0%, 100%);
+  --color-element: hsl(209, 23%, 22%);
+  --background-color: hsl(207, 26%, 17%);
+  /* --shadow: -2px 0px 39px 0px rgba(34, 60, 80, 0.2);*/
+}
+
+body[app-theme="light_mode"] {
+  --color-text: hsl(200, 15%, 8%);
+  --color-element: hsl(0, 0%, 100%);
+  --background-color: hsl(0, 0%, 98%);
+  /* --shadow: 4px 4px 16px 18px rgba(255, 255, 255, 0.37); */
+}
+
+body {
+  font-family: var(--family);
+  color: var(--color-text);
+  font-weight: var(--fw-light);
+  background-color: var(--background-color);
+  /* box-shadow: var(--shadow); */
+ 
 }
